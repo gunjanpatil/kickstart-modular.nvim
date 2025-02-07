@@ -45,4 +45,26 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+----------------custom keymaps -----------------------
+
+-- OIL
+vim.keymap.set('n', '-', '<cmd>Oil<CR>', { desc = 'Open parent directory' })
+
+-- Exit insert mode without hitting Esc
+vim.keymap.set('i', 'jk', '<Esc>', { desc = 'Esc' })
+
+-- Select All
+vim.keymap.set('n', '==', 'gg<S-v>G')
+
+-- Visual --
+-- Stay in indent mode
+vim.keymap.set('v', '<', '<gv', { desc = 'indent left' })
+vim.keymap.set('v', '>', '>gv', { desc = 'indent right' })
+
+-- Move block
+vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", { desc = 'Move Block Down' })
+vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", { desc = 'Move Block Down' })
+
+vim.keymap.set({ 'n', 'o', 'x' }, '<s-h>', '^', { desc = 'Jump to the begining of the line' })
+vim.keymap.set({ 'n', 'o', 'x' }, '<s-l>', 'g_', { desc = 'Jump to he end of the line' })
 -- vim: ts=2 sts=2 sw=2 et
